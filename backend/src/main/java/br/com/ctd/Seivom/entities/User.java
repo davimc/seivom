@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -23,8 +22,8 @@ public class User implements Serializable {
     private String cpf;
     private String password;
 
-    private LocalDate birthDate;
-    private LocalDateTime entryDate;
+    private LocalDate birthdate;
+    private LocalDateTime dtEntry;
 
     @ManyToMany
     @JoinTable(name = "tb_user_role",
@@ -38,8 +37,8 @@ public class User implements Serializable {
         this.email = email;
         this.cpf = cpf;
         this.password = password;
-        this.birthDate = birthDate;
-        this.entryDate = entry;
+        this.birthdate = birthDate;
+        this.dtEntry = entry;
     }
 
     public Long getId() {
@@ -82,20 +81,20 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
+    public LocalDate getBirthdate() {
+        return birthdate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
     }
 
     public LocalDateTime getEntry() {
-        return entryDate;
+        return dtEntry;
     }
 
     public void setEntry(LocalDateTime entry) {
-        this.entryDate = entry;
+        this.dtEntry = entry;
     }
 
     public Set<Role> getRoles() {
