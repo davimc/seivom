@@ -3,6 +3,8 @@ package br.com.ctd.Seivom.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +16,9 @@ public class Studio implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @OneToMany(mappedBy = "studio")
+    List<Movie> movies = new ArrayList<>();
 
     public Studio(Long id, String name) {
         this.id = id;

@@ -4,6 +4,8 @@ package br.com.ctd.Seivom.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +17,9 @@ public class Director implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @OneToMany(mappedBy = "director")
+    private List<Movie> movie = new ArrayList<>();
 
     public Director(Long id, String name) {
         this.id = id;
@@ -35,6 +40,10 @@ public class Director implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Movie> getMovie() {
+        return movie;
     }
 
     @Override
