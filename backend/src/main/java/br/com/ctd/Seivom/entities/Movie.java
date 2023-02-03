@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -26,6 +28,12 @@ public class Movie implements Serializable {
     @ManyToOne
     @JoinColumn(name = "studio_id")
     private Studio studio;
+
+    @OneToMany(mappedBy = "movie")
+    private List<Comment> comments = new ArrayList<>();
+
+    public Movie() {
+    }
 
     public Movie(Long id, String name) {
         this.id = id;
@@ -87,6 +95,10 @@ public class Movie implements Serializable {
 
     public void setStudio(Studio studio) {
         this.studio = studio;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
     }
 
     @Override

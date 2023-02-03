@@ -20,6 +20,9 @@ public class Studio implements Serializable {
     @OneToMany(mappedBy = "studio")
     List<Movie> movies = new ArrayList<>();
 
+    public Studio() {
+    }
+
     public Studio(Long id, String name) {
         this.id = id;
         this.name = name;

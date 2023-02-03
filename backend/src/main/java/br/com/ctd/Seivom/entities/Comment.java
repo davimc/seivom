@@ -32,6 +32,9 @@ public class Comment implements Serializable {
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
+    public Comment() {
+    }
+
     public Comment(Long id, String comment, Double rating, LocalDate date, User user, Movie movie) {
         this.id = id;
         this.comment = comment;

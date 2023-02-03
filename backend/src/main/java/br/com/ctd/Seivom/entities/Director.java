@@ -21,6 +21,9 @@ public class Director implements Serializable {
     @OneToMany(mappedBy = "director")
     private List<Movie> movie = new ArrayList<>();
 
+    public Director() {
+    }
+
     public Director(Long id, String name) {
         this.id = id;
         this.name = name;
