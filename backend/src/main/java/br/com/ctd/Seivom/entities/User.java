@@ -1,5 +1,6 @@
 package br.com.ctd.Seivom.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -23,7 +24,8 @@ public class User implements Serializable {
     private LocalDate birthdate;
     private LocalDateTime dtEntry;
 
-    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Comment> comments = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER)

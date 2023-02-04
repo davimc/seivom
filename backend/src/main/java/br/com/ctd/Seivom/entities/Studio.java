@@ -1,5 +1,6 @@
 package br.com.ctd.Seivom.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -17,6 +18,7 @@ public class Studio implements Serializable {
     private Long id;
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "studio", fetch = FetchType.EAGER)
     List<Movie> movies = new ArrayList<>();
 

@@ -1,6 +1,7 @@
 package br.com.ctd.Seivom.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -18,6 +19,7 @@ public class Director implements Serializable {
     private Long id;
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "director", fetch = FetchType.EAGER)
     private List<Movie> movie = new ArrayList<>();
 

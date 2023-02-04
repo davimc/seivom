@@ -1,6 +1,7 @@
 package br.com.ctd.Seivom.entities;
 
 import br.com.ctd.Seivom.entities.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -17,7 +18,8 @@ public class Role implements Serializable {
     private Long id;
     private String authority;
 
-    @ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<User> users = new HashSet<>();
 
     public Role() {

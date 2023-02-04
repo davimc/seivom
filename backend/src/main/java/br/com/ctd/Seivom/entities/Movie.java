@@ -2,6 +2,7 @@ package br.com.ctd.Seivom.entities;
 
 
 import br.com.ctd.Seivom.entities.enums.GenreType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -29,7 +30,8 @@ public class Movie implements Serializable {
     @JoinColumn(name = "studio_id")
     private Studio studio;
 
-    @OneToMany(mappedBy = "movie")
+    @JsonIgnore
+    @OneToMany(mappedBy = "movie", fetch = FetchType.EAGER)
     private List<Comment> comments = new ArrayList<>();
 
     public Movie() {
