@@ -27,7 +27,6 @@ public class CommentService {
 
     public Page<CommentDTO> findAll(Pageable pageable) {
         Page<Comment> obj = repository.findAll(pageable);
-
         return obj.map(CommentDTO::new);
     }
 
