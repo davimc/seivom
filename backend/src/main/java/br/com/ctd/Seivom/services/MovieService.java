@@ -19,10 +19,9 @@ public class MovieService {
     @Autowired
     private MovieRepository repository;
 
-    public Page<Movie> findAll(Pageable pageable) {
+    public Page<MovieDTO> findAll(Pageable pageable) {
         Page<Movie> obj = repository.findAll(pageable);
-        return obj;
-//        return obj.map(MovieDTO::new);
+        return obj.map(MovieDTO::new);
     }
 
     protected Movie findMovie(Long id) {

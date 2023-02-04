@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/movies")
-public class MovieResource {
+public class MovieController {
     @Autowired
     private MovieService service;
 
     @GetMapping
-    public ResponseEntity<Page<Movie>> findAll(Pageable pageable) {
+    public ResponseEntity<Page<MovieDTO>> findAll(Pageable pageable) {
         return ResponseEntity.ok().body(service.findAll(pageable));
     }
 
@@ -27,6 +27,5 @@ public class MovieResource {
     public ResponseEntity<MovieDTO> find(@PathVariable Long id){
         return ResponseEntity.ok().body(service.findDto(id));
     }
-    
 
 }

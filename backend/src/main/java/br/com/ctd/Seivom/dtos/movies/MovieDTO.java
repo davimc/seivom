@@ -31,4 +31,44 @@ public class MovieDTO implements Serializable {
         this.director = obj.getDirector().getName();
         this.studio = obj.getStudio().getName();
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public String getStudio() {
+        return studio;
+    }
+
+    public void setStudio(String studio) {
+        this.studio = studio;
+    }
 }
