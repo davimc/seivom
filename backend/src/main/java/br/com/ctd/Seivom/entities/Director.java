@@ -18,7 +18,7 @@ public class Director implements Serializable {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "director")
+    @OneToMany(mappedBy = "director", fetch = FetchType.EAGER)
     private List<Movie> movie = new ArrayList<>();
 
     public Director() {

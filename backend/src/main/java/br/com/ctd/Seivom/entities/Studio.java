@@ -17,7 +17,7 @@ public class Studio implements Serializable {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "studio")
+    @OneToMany(mappedBy = "studio", fetch = FetchType.EAGER)
     List<Movie> movies = new ArrayList<>();
 
     public Studio() {

@@ -1,6 +1,7 @@
 package br.com.ctd.Seivom.controllers;
 
 import br.com.ctd.Seivom.dtos.movies.MovieDTO;
+import br.com.ctd.Seivom.entities.Movie;
 import br.com.ctd.Seivom.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,7 +19,7 @@ public class MovieResource {
     private MovieService service;
 
     @GetMapping
-    public ResponseEntity<Page<MovieDTO>> findAll(Pageable pageable) {
+    public ResponseEntity<Page<Movie>> findAll(Pageable pageable) {
         return ResponseEntity.ok().body(service.findAll(pageable));
     }
 
